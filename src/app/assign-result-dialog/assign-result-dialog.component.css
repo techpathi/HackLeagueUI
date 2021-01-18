@@ -1,0 +1,14 @@
+.mat-radio-group {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0.5em;
+}
+
+.mat-radio-button {
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
+button {
+    margin-left: 1em;
+}

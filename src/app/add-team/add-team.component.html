@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row add-team-box">
+        <div class="col-md-4 offset-md-4">
+            <form class="add-team-form">
+                <mat-form-field class="team-name-field">
+                    <mat-label>Type team name here</mat-label>
+                    <input type="text" name="teamName" (keydown.enter)="addTeam()" autofocus [(ngModel)]="teamName" matInput #message maxlength="20" placeholder="Give some good name..">
+                    <mat-hint align="start"><strong>Keep it short :)</strong> </mat-hint>
+                    <mat-hint align="end">{{message.value.length}} / 20</mat-hint>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="navigate-back-btn col-md-3 offset-md-9 ">
+            <button mat-button [routerLink]="['/home']"> Return To Leader Board </button>
+        </div>
+    </div>
+    <div class="row add-result-box">
+        <div *ngIf="isteamAdded" class="col-md-4 offset-md-4">
+            <p style="width: auto;" class="alert alert-success alert-dismissible fade show" role="alert">
+                Team {{teamNametoDisplay}} is added!
+            </p>
+        </div>
+        <div *ngIf="errorMessage" class="col-md-4 offset-md-4 ">
+            <p style="width: auto; " class="alert alert-danger alert-dismissible fade show " role="alert ">
+                {{errorMessage}}
+            </p>
+        </div>
+    </div>
+
+</div>

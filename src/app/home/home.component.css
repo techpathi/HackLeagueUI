@@ -1,0 +1,55 @@
+table {
+    width: 100%;
+}
+
+th,
+td {
+    padding: 0.7em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+thead {
+    background-color: #01579b;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+.selectedRow {
+    background-color: #81d4fa;
+}
+
+.ripple {
+    background-position: center;
+    transition: background 0.8s;
+}
+
+.ripple:hover {
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #81d4fa 1%) center/15000%;
+}
+
+.ripple:active {
+    background-color: #81d4fa;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.mat-form-field {
+    width: 200px;
+}
+
+.search-team {
+    max-width: 500px;
+    padding-bottom: 1.5em;
+    margin: auto;
+}
+
+.form-control {
+    box-shadow: 0 10px 40px 0 #64666b;
+    text-align: center;
+}
+
+.form-control::placeholder {
+    font-family: FontAwesome;
+}

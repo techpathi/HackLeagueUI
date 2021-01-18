@@ -1,0 +1,51 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-9 search-team">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchTerm" autocomplete="off" placeholder="&#61442;  Start searching for a team by name or score">
+        </div>
+        <div class="col-md-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Sort By</mat-label>
+                <mat-select (selectionChange)="handleSort($event)" [(value)]="sortByFactor">
+                    <mat-option>None</mat-option>
+                    <mat-option value="Score">Score</mat-option>
+                    <mat-option value="Name">Name</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div *ngIf="isLoaded===false" class="jumbotron">
+            <p>Loading leaderboard.....</p>
+        </div>
+        <div *ngIf="isLoaded">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Team Name</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Ties</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let team of teams | filter:searchTerm | paginate: config" (click)="onTeamClick(team._id)" [class.selectedRow]="isTeamSelected(team._id)" style="cursor: pointer;" class="ripple">
+                        <th scope="row">{{team.team_name}}</th>
+                        <td>{{team.wins}}</td>
+                        <td>{{team.losses}}</td>
+                        <td>{{team.ties}}</td>
+                        <td>{{team.score}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row col-md-8 offset-md-3 fixed-bottom">
+        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    </div>
+
+</div>

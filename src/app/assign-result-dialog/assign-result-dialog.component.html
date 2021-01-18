@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Please select winner</h2>
+
+<mat-dialog-content>
+    <mat-radio-group [(ngModel)]="winnerIndex">
+        <mat-radio-button *ngFor="let team of teamsToAssign; let i = index;" [value]=i>
+            {{team.team_name}}
+        </mat-radio-button>
+        <mat-radio-button [value]=2>This match is a tie</mat-radio-button>
+    </mat-radio-group>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>

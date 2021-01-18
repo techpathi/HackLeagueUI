@@ -1,0 +1,14 @@
+nav {
+    margin-bottom: 1em;
+    background-color: #002f6c;
+    font-family: fantasy
+}
+
+nav-item:hover {
+    font-weight: bold;
+}
+
+.active-link {
+    color: aliceblue;
+    font-weight: bold;
+}
